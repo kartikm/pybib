@@ -13,9 +13,13 @@ tool = tools[0]
 langs = tool.get_available_languages()
 lang = langs[1]
 
-digits = tool.image_to_string(
-    Image.open('bib.png'),
-    lang=lang
+def digits(image_path, lang=None):
+    return tool.image_to_string(
+        Image.open(image_path),
+        lang=lang,
+        builder = pyocr.tesseract.DigitBuilder()
 )
 
-print("Bib no: " % digits())
+bib = digits('bib.png')
+
+print("Bib number is: " + bib)
