@@ -18,4 +18,4 @@ digits = tool.image_to_string(
     lang=lang
 )
 
-print("Bib no: " + digits())
+print("Bib no: " % digits())
